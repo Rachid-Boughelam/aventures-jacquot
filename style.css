@@ -63,3 +63,27 @@ p {
   background-color: #ff6347;
   transform: scale(1.05);
 }
+
+.signature {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #eee; /* gris clair / presque blanc */
+  font-weight: bold;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 0.9rem; /* plus petite taille */
+  padding: 5px 15px; /* moins de padding pour être plus discrète */
+  border-radius: 12px;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* ombre noire pour lisibilité */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* léger effet de profondeur */
+  z-index: 5;
+  opacity: 0;
+  animation: fadeIn 2s forwards; /* animation au chargement */
+}
+
+/* Animation fade-in */
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
