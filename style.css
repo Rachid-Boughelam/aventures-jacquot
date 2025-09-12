@@ -7,11 +7,14 @@
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url('jacquot-cscsc.jpg') no-repeat center center/cover;
+  /* background-size: contain pour afficher l'image entière */
+  background: url('jacquot-cscsc.jpg') no-repeat center center;
+  background-size: contain;
+  background-color: #000; /* couleur de fond si l'image ne couvre pas tout */
   position: relative;
   overflow: hidden;
   color: #fff;
@@ -33,18 +36,13 @@ body::before {
   position: relative;
   z-index: 2;
   text-align: center;
+  padding: 1rem;
 }
 
 h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-}
-
-p {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
 }
 
 .btn {
@@ -69,21 +67,33 @@ p {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  color: #eee; /* gris clair / presque blanc */
+  color: #eee;
   font-weight: bold;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  font-size: 0.9rem; /* plus petite taille */
-  padding: 5px 15px; /* moins de padding pour être plus discrète */
+  font-size: 0.9rem;
+  padding: 5px 15px;
   border-radius: 12px;
   text-align: center;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* ombre noire pour lisibilité */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* léger effet de profondeur */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   z-index: 5;
   opacity: 0;
-  animation: fadeIn 2s forwards; /* animation au chargement */
+  animation: fadeIn 2s forwards;
 }
 
-/* Animation fade-in */
 @keyframes fadeIn {
   to { opacity: 1; }
+}
+
+/* ----- Responsive adjustments ----- */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .btn {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+  .signature {
+    font-size: 0.8rem;
+  }
 }
