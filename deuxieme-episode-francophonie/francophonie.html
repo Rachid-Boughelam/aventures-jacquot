@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Découvre la francophonie !</title>
+  <link rel="stylesheet" href="francophonie.css" />
+</head>
+<body>
+  <main class="container">
+  <h1>Découvre la francophonie !</h1>
+
+<div class="bd-block center">
+  <img src="images/jacquot.png" alt="Jacquot" class="jacquot">
+  <div class="speech-bubble left">
+    Voici tous les pays francophones sur une carte, sauras-tu les reconnaître ?
+  </div>
+</div>
+
+  <img src="images/francophonie.png"
+       alt="Carte de la francophonie"
+       id="carte-franco">
+
+  <h2>Liste des pays francophones</h2>
+<div class="bd-block center">
+  <img src="images/jacquot.png" alt="Jacquot" class="jacquot">
+  <div class="speech-bubble left">
+    Et voici une longue liste que tu peux trier si tu veux !  
+  </div>
+</div>
+  <div class="bd-block">
+    <div class="table-wrapper">
+      <table id="liste-pays">
+        <thead>
+          <tr>
+            <th data-col="nom">Pays ▲▼</th>
+            <th data-col="population">Population ▲▼</th>
+            <th data-col="pourcent">% francophones ▲▼</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+  </div>
+</main>
+
+  <script src="francophonie.js"></script>
+</body>
+</html>

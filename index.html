@@ -11,17 +11,21 @@
 <body>
   <div class="container">
     <h1>Bienvenue dans les aventures de Jacquot !</h1>
-    <button class="btn" onclick="startEpisode()">Jouer</button>
+
+    <!-- Bouton Jouer avec menu déroulant -->
+    <div class="dropdown">
+      <button class="btn" id="playBtn">Jouer</button>
+      <div class="dropdown-content" id="episodesDropdown">
+        <a href="#" id="boussoleLink">À la recherche de la boussole perdue</a>
+        <a href="deuxieme-episode-francophonie/francophonie.html">Découvre la francophonie</a>
+      </div>
+    </div>
   </div>
 
   <div class="signature">
     Fait par votre moniteur de langue - monsieur Rachid - avec ❤️
   </div>
 
-  <script>
-    function startEpisode() {
-      window.location.href = "premier-episode-boussole/boussole.html"; 
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
