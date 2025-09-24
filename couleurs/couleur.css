@@ -1,15 +1,15 @@
 body {
   font-family: Arial, sans-serif;
-  background: #000;          /* 🔹 Fond noir */
+  background: #000;
   text-align: center;
   padding: 20px;
-  color: #fff;               /* Texte par défaut en blanc */
+  color: #fff;
 }
 
 h1 {
   margin-bottom: 30px;
   font-size: 2rem;
-  color: #fff;               /* 🔹 Titre en blanc */
+  color: #fff;
 }
 
 #buttons {
@@ -31,12 +31,13 @@ h1 {
   cursor: pointer;
   transition: transform 0.2s;
 }
+
 .color-btn:hover {
   transform: scale(1.1);
 }
 
 #resultat img {
-  max-width: 300px;
+  max-width: 90%;
   height: auto;
   margin: 20px 0;
 }
@@ -44,7 +45,7 @@ h1 {
 #action {
   font-size: 2rem;
   font-weight: bold;
-  color: #fff;              /* 🔹 Action en blanc */
+  color: #fff;
 }
 
 #home-button {
@@ -62,4 +63,55 @@ h1 {
   cursor: pointer;
   box-shadow: 0 0 8px rgba(0,0,0,0.4);
   transition: background 0.3s, transform 0.2s;
+}
+
+/* === MEDIA QUERIES === */
+
+/* Pour les tablettes */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .color-btn {
+    width: 100px;
+    height: 50px;
+    font-size: 1rem;
+  }
+
+  #action {
+    font-size: 1.5rem;
+  }
+
+  #home-button {
+    font-size: 16px;
+    padding: 8px 14px;
+  }
+}
+
+/* Pour les smartphones */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  .color-btn {
+    width: 80px;
+    height: 45px;
+    font-size: 0.9rem;
+  }
+
+  #action {
+    font-size: 1.2rem;
+  }
+
+  #home-button {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  body {
+    padding: 15px 10px;
+  }
 }
