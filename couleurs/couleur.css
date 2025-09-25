@@ -1,53 +1,19 @@
+/* === Base === */
 body {
   font-family: Arial, sans-serif;
   background: #000;
+  color: #fff;
   text-align: center;
   padding: 20px;
-  color: #fff;
+  margin: 0;
 }
 
 h1 {
   margin-bottom: 30px;
   font-size: 2rem;
-  color: #fff;
 }
 
-#buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 40px;
-}
-
-.color-btn {
-  width: 120px;
-  height: 60px;
-  border: none;
-  border-radius: 12px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: white;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.color-btn:hover {
-  transform: scale(1.1);
-}
-
-#resultat img {
-  max-width: 90%;
-  height: auto;
-  margin: 20px 0;
-}
-
-#action {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #fff;
-}
-
+/* === Bouton retour accueil === */
 #home-button {
   position: fixed;
   top: 15px;
@@ -64,54 +30,67 @@ h1 {
   box-shadow: 0 0 8px rgba(0,0,0,0.4);
   transition: background 0.3s, transform 0.2s;
 }
-
-/* === MEDIA QUERIES === */
-
-/* Pour les tablettes */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  .color-btn {
-    width: 100px;
-    height: 50px;
-    font-size: 1rem;
-  }
-
-  #action {
-    font-size: 1.5rem;
-  }
-
-  #home-button {
-    font-size: 16px;
-    padding: 8px 14px;
-  }
+#home-button:hover {
+  background: #ff9800;
+  transform: scale(1.05);
 }
 
-/* Pour les smartphones */
+/* === Boutons couleurs === */
+#buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.color-btn {
+  width: 120px;
+  height: 60px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.color-btn:hover {
+  transform: scale(1.1);
+}
+
+/* === Zone résultat === */
+#resultat {
+  margin-top: 20px;
+}
+
+#resultat img {
+  width: 90%;
+  max-width: 400px;   /* Limite sur grand écran */
+  height: auto;
+  margin: 20px 0;
+}
+
+#action {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* === Media Queries === */
+
+/* Tablettes */
+@media (max-width: 768px) {
+  h1 { font-size: 1.5rem; }
+  .color-btn { width: 100px; height: 50px; font-size: 1rem; }
+  #action { font-size: 1.5rem; }
+  #home-button { font-size: 16px; padding: 8px 14px; }
+}
+
+/* Smartphones */
 @media (max-width: 480px) {
-  h1 {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-  }
-
-  .color-btn {
-    width: 80px;
-    height: 45px;
-    font-size: 0.9rem;
-  }
-
-  #action {
-    font-size: 1.2rem;
-  }
-
-  #home-button {
-    font-size: 14px;
-    padding: 6px 12px;
-  }
-
-  body {
-    padding: 15px 10px;
-  }
+  body { padding: 15px 10px; }
+  h1 { font-size: 1.2rem; margin-bottom: 20px; }
+  .color-btn { width: 80px; height: 45px; font-size: 0.9rem; }
+  #action { font-size: 1.2rem; }
+  #home-button { font-size: 14px; padding: 6px 12px; }
 }
