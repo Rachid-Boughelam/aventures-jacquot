@@ -1,5 +1,5 @@
 const paysFrancophonie = [
-  // Afrique
+  // --- Données inchangées ---
   { nom: "Maroc", population: 36192000, pourcent: 35, continent: "Afrique" },
   { nom: "Tunisie", population: 11659000, pourcent: 52, continent: "Afrique" },
   { nom: "Mauritanie", population: 4540000, pourcent: 13, continent: "Afrique" },
@@ -93,56 +93,57 @@ const paysFrancophonie = [
   { nom: "Corée du Sud", population: 51164000, pourcent: 0.1, continent: "Asie" },
 ];
 
-
-
 const tbody = document.querySelector("#liste-pays tbody");
 
-// Fonction pour remplir le tableau
+// --------- Remplissage du tableau ---------
 function renderTable(data) {
   tbody.innerHTML = "";
   data.forEach(p => {
+    const nbFrancos = Math.round(p.population * (p.pourcent / 100));
     const row = document.createElement("tr");
     row.innerHTML = `
       <td>${p.continent}</td>
       <td>${p.nom}</td>
       <td>${p.population.toLocaleString()}</td>
       <td>${p.pourcent}%</td>
+      <td>${nbFrancos.toLocaleString()}</td>
     `;
     tbody.appendChild(row);
   });
 }
 
-
-// Tri générique
+// --------- Tri générique ---------
 let currentSort = { col: null, asc: true };
 
 function sortBy(col) {
   if (currentSort.col === col) {
-    currentSort.asc = !currentSort.asc; // inverse l'ordre
+    currentSort.asc = !currentSort.asc;
   } else {
     currentSort.col = col;
     currentSort.asc = true;
   }
 
   const sorted = [...paysFrancophonie].sort((a, b) => {
-  if (col === "nom" || col === "continent") {
-    return currentSort.asc
-      ? a[col].localeCompare(b[col])
-      : b[col].localeCompare(a[col]);
-  } else {
-    return currentSort.asc
-      ? a[col] - b[col]
-      : b[col] - a[col];
-  }
-});
+    if (col === "nom" || col === "continent") {
+      return currentSort.asc
+        ? a[col].localeCompare(b[col])
+        : b[col].localeCompare(a[col]);
+    } else if (col === "nombreFrancos") {
+      const af = a.population * a.pourcent / 100;
+      const bf = b.population * b.pourcent / 100;
+      return currentSort.asc ? af - bf : bf - af;
+    } else {
+      return currentSort.asc ? a[col] - b[col] : b[col] - a[col];
+    }
+  });
 
   renderTable(sorted);
 }
 
-// Écouteurs sur les entêtes
+// --------- Écouteurs sur les en-têtes ---------
 document.querySelectorAll("#liste-pays thead th").forEach(th => {
   th.addEventListener("click", () => sortBy(th.dataset.col));
 });
 
-// Premier rendu par nom
+// Premier affichage
 sortBy("nom");
