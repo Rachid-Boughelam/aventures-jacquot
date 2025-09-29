@@ -25,10 +25,35 @@ const actions = [
   "PLEURE !"
 ];
 
+// Association des actions avec les images
+const imagesActions = {
+  "ASSIS TOI !": "assis-toi.jpg",
+  "DEBOUT !": "debout.jpg",
+  "DANSE !": "danse.jpg",
+  "SAUTE !": "saute.jpg",
+  "SOIT TRISTE !": "triste.jpg",
+  "SOIT HEUREUX !": "heureux.jpg",
+  "PLEURE !": "pleure.jpg",
+  "RIGOLE !": "heureux.jpg" // si tu veux utiliser "heureux.jpg" pour rigole
+};
+
 // Récupération des éléments du DOM
 const buttonsDiv = document.getElementById("buttons");
 const imgJacquot = document.getElementById("jacquot");
 const actionText = document.getElementById("action");
+
+// Élément pour afficher l'image de l'action
+const actionImg = document.createElement("img");
+actionImg.id = "action-img";
+actionImg.style.width = "150px";
+actionImg.style.height = "150px";
+actionImg.style.marginLeft = "20px";
+
+// **Image par défaut au démarrage**
+actionImg.src = "images/img.png"; // chemin relatif
+actionImg.alt = "Image par défaut";
+
+imgJacquot.insertAdjacentElement("afterend", actionImg);
 
 // Création du compteur dans le DOM
 let countdownDiv = document.createElement("p");
@@ -62,6 +87,21 @@ function startCountdown() {
   }, 1000);
 }
 
+// Fonction pour afficher une action et son image
+function afficherAction() {
+  const randomAction = actions[Math.floor(Math.random() * actions.length)];
+  actionText.textContent = randomAction;
+
+  const imgFile = imagesActions[randomAction];
+  if (imgFile) {
+    actionImg.src = imgPath + imgFile;
+    actionImg.alt = randomAction;
+  } else {
+    actionImg.src = "";
+    actionImg.alt = "";
+  }
+}
+
 // Création des boutons pour chaque couleur
 for (const [nom, data] of Object.entries(couleurs)) {
   const btn = document.createElement("button");
@@ -70,13 +110,12 @@ for (const [nom, data] of Object.entries(couleurs)) {
   btn.style.backgroundColor = data.bg;
 
   btn.addEventListener("click", () => {
-    // Changement de l'image
+    // Changement de l'image de Jacquot
     imgJacquot.src = imgPath + data.fichier;
     imgJacquot.alt = "Jacquot " + nom;
 
-    // Affichage d'une action aléatoire
-    const randomAction = actions[Math.floor(Math.random() * actions.length)];
-    actionText.textContent = randomAction;
+    // Affichage d'une action et de son image
+    afficherAction();
 
     // Lecture vocale de la couleur avec voix enfant
     lireCouleur(nom);
